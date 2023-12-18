@@ -5,7 +5,8 @@ rancher-monitoring:
       url: http://rancher-monitoring-prometheus.monitoring.svc
   alertmanager:
     alertmanagerSpec:
-      secrets: telegram-token
+      secrets:
+        - telegram-token
     ingress:
       enabled: true
       annotations:
@@ -39,6 +40,7 @@ rancher-monitoring:
           hosts:
             - "prometheus.blindfolded.surgery"
   grafana:
+    envFromSecret: auth-github-client-secret
     ingress:
       enabled: true
       annotations:
@@ -61,12 +63,12 @@ rancher-monitoring:
 namespace: monitoring
 github:
   secret:
-    name: clientSecret
+    name: auth-github-client-secret
     secretStoreName: mgmt-prod
     data:
       - secretKey: clientSecret
         remoteRef:
-          key: TELEGRAM_PROMETHEUS_TOKEN
+          key: GF_AUTH_GITHUB_CLIENT_SECRET
 
 telegram:
   chat_id: "-1001725503365"
