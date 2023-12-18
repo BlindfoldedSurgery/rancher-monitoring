@@ -9,6 +9,8 @@ rancher-monitoring:
         telegram-token
   prometheus:
     prometheusSpec:
+      scrapeInterval: "30s"
+      evaluationInterval: "60s"
       resources:
         limits:
           memory: 2000Mi
