@@ -5,8 +5,19 @@ rancher-monitoring:
       url: http://rancher-monitoring-prometheus.monitoring.svc
   alertmanager:
     alertmanagerSpec:
-      secrets:
-        telegram-token
+      secrets: telegram-token
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/tls-acme: "true"
+        cert-manager.io/issue-temporary-certificate: "false"
+        cert-manager.io/cluster-issuer: letsencrypt-issuer
+      hosts:
+        - "alertmanager.blindfolded.surgery"
+      tls:
+        - secretName: tls-alertmanager
+          hosts:
+            - "alertmanager.blindfolded.surgery"
   prometheus:
     prometheusSpec:
       scrapeInterval: "30s"
@@ -15,14 +26,39 @@ rancher-monitoring:
         limits:
           memory: 2000Mi
           cpu: 1000m
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/tls-acme: "true"
+        cert-manager.io/issue-temporary-certificate: "false"
+        cert-manager.io/cluster-issuer: letsencrypt-issuer
+      hosts:
+        - "prometheus.blindfolded.surgery"
+      tls:
+        - secretName: tls-prometheus
+          hosts:
+            - "prometheus.blindfolded.surgery"
+  grafana:
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/tls-acme: "true"
+        cert-manager.io/issue-temporary-certificate: "false"
+        cert-manager.io/cluster-issuer: letsencrypt-issuer
+      hosts:
+        - "grafana.blindfolded.surgery"
+      tls:
+        - secretName: tls-grafana
+          hosts:
+            - "grafana.blindfolded.surgery"
 
 namespace: monitoring
 telegram:
   chat_id: "-1001725503365"
   secret:
-      name: telegram-token
-      secretStoreName: mgmt-prod
-      data:
+    name: telegram-token
+    secretStoreName: mgmt-prod
+    data:
       - secretKey: token
         remoteRef:
           token: TELEGRAM_PROMETHEUS_TOKEN
