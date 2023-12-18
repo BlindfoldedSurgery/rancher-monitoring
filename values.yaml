@@ -59,6 +59,8 @@ rancher-monitoring:
       auth.github:
         client_id: 8eb4581304d547049345
         enabled: true
+        allowed_organizations: "BlindfoldedSurgery"
+        role_attribute_path: "contains(groups[*], '@BlindfoldedSurgery/Owners') && 'Admin' || 'Viewer'"
       auth:
         disable_login_form: true
       auth.basic:
