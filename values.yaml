@@ -67,7 +67,8 @@ rancher-monitoring:
         disable_login_form: true
       auth.basic:
         enabled: false
-      log.level: debug
+      log:
+        level: debug
 
 
 namespace: monitoring
