@@ -73,7 +73,7 @@ github:
     name: auth-github-client-secret
     secretStoreName: mgmt-prod
     data:
-      - secretKey: clientSecret
+      - secretKey: GF_AUTH_GITHUB_CLIENT_SECRET
         remoteRef:
           key: GF_AUTH_GITHUB_CLIENT_SECRET
 
