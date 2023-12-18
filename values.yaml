@@ -51,8 +51,23 @@ rancher-monitoring:
         - secretName: tls-grafana
           hosts:
             - "grafana.blindfolded.surgery"
+    grafana.ini:
+      server:
+        root_url: "https://grafana.blindfolded.surgery"
+      auth.github:
+        client_id: 8eb4581304d547049345
+
 
 namespace: monitoring
+github:
+  secret:
+    name: clientSecret
+    secretStoreName: mgmt-prod
+    data:
+      - secretKey: clientSecret
+        remoteRef:
+          key: TELEGRAM_PROMETHEUS_TOKEN
+
 telegram:
   chat_id: "-1001725503365"
   secret:
@@ -61,4 +76,4 @@ telegram:
     data:
       - secretKey: token
         remoteRef:
-          token: TELEGRAM_PROMETHEUS_TOKEN
+          key: TELEGRAM_PROMETHEUS_TOKEN
