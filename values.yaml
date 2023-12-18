@@ -3,3 +3,24 @@ rancher-monitoring:
   prometheus-adapter:
     prometheus:
       url: http://rancher-monitoring-prometheus.monitoring.svc
+  alertmanager:
+    alertmanagerSpec:
+      secrets:
+        telegram-token
+  prometheus:
+    prometheusSpec:
+      resources:
+        limits:
+          memory: 2000Mi
+          cpu: 1000m
+
+namespace: monitoring
+telegram:
+  chat_id: "-1001725503365"
+  secret:
+      name: telegram-token
+      secretStoreName: mgmt-prod
+      data:
+      - secretKey: token
+        remoteRef:
+          token: TELEGRAM_PROMETHEUS_TOKEN

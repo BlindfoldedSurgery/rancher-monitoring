@@ -1,0 +1,22 @@
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: {{ .Values.telegram.name }}
+  namespace: {{ .Values.namespace  }}
+  labels:
+    app.kubernetes.io/part-of: argocd
+spec:
+  refreshInterval: {{ default .Values.telegram.secret.refreshInterval "1h0m0s" }}
+  secretStoreRef:
+    name: {{ .Values.telegram.secret.secretStoreName }}
+    kind: {{ .Values.telegram.secret.secretStoreKind | default "ClusterSecretStore" }}
+  target:
+    name: {{ .Values.telegram.secret.name | default .name }}
+    creationPolicy: {{ .Values.telegram.secret.secretCreationPolicy | default "Owner" }}
+  {{- if .Values.telegram.secret.data }}
+  data: {{ toYaml .Values.telegram.secret.data | nindent 4 }}
+  {{- end -}}
+  {{- if .dataFrom }}
+  dataFrom: {{ toYaml .Values.telegram.secret.dataFrom | nindent 4 }}
+  {{- end -}}
