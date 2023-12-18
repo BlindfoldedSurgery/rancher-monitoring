@@ -2,7 +2,7 @@
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
-  name: {{ .Values.telegram.name }}
+  name: {{ .Values.telegram.secret.name }}
   namespace: {{ .Values.namespace  }}
   labels:
     app.kubernetes.io/part-of: argocd
