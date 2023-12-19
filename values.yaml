@@ -29,6 +29,16 @@ rancher-monitoring:
         limits:
           memory: 1500Mi
           cpu: 1000m
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - agent-0
+                - agent-1
     ingress:
       enabled: true
       annotations:
