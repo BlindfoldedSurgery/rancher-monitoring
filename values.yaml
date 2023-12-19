@@ -42,13 +42,14 @@ rancher-monitoring:
       retentionSize: 15Gi
       storageSpec:
         volumeClaimTemplate:
+          apiVersion: v1
+          kind: PersistentVolumeClaim
           spec:
-            accessModes:
-            - ReadWriteOnce
+            storageClassName: longhorn
+            accessModes: ["ReadWriteOnce"]
             resources:
               requests:
                 storage: 20Gi
-            storageClassName: longhorn
     ingress:
       enabled: true
       annotations:
