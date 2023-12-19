@@ -6,8 +6,6 @@ rancher-monitoring:
   alertmanager:
     alertmanagerSpec:
       externalUrl: https://alertmanager.blindfolded.surgery
-      secrets:
-        - telegram-token
     ingress:
       enabled: true
       annotations:
