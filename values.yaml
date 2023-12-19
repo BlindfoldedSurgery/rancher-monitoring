@@ -91,6 +91,7 @@ rancher-monitoring:
         allow_assign_grafana_admin: true
       auth:
         disable_login_form: true
+        anonymous: false
       auth.basic:
         enabled: false
       security:
