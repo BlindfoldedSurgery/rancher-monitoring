@@ -5,7 +5,7 @@ rancher-monitoring:
       url: http://rancher-monitoring-prometheus.monitoring.svc
   alertmanager:
     alertmanagerSpec:
-      externalUrl: alertmanager.blindfolded.surgery
+      externalUrl: https://alertmanager.blindfolded.surgery
       secrets:
         - telegram-token
     ingress:
@@ -24,7 +24,7 @@ rancher-monitoring:
             - "alertmanager.blindfolded.surgery"
   prometheus:
     prometheusSpec:
-      externalUrl: prometheus.blindfolded.surgery
+      externalUrl: https://prometheus.blindfolded.surgery
       scrapeInterval: "30s"
       evaluationInterval: "60s"
       resources:
