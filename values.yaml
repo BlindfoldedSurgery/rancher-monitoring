@@ -39,7 +39,7 @@ rancher-monitoring:
                 values:
                 - agent-0
                 - agent-1
-      retentionSize: 15Gi
+      retentionSize: 15GB
       storageSpec:
         volumeClaimTemplate:
           apiVersion: v1
