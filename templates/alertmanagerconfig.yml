@@ -12,7 +12,9 @@ spec:
     repeatInterval: 12h
     receiver: 'telegram'
     matchers:
-    - severity =~ "warning|critical"
+    - name: severity
+      regex: true
+      value: "warning|critical"
   receivers:
   - name: 'telegram'
     telegramConfigs:
