@@ -95,7 +95,7 @@ telegram:
 
 basic_auth:
   secret:
-    name: basic_auth
+    name: basic-auth
     secretStoreName: mgmt-prod
     data:
       - secretKey: auth
