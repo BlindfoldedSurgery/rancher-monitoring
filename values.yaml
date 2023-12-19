@@ -27,7 +27,7 @@ rancher-monitoring:
       evaluationInterval: "60s"
       resources:
         limits:
-          memory: 1500Mi
+          memory: 3000Mi
           cpu: 1000m
       affinity:
         nodeAffinity:
