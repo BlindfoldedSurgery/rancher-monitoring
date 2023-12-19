@@ -16,5 +16,7 @@ spec:
     telegramConfigs:
     - botToken:
         key: token
+        name: alertmanager-telegram-token
+        optional: false
       chatID: {{ .Values.telegram.chat_id }}
       sendResolved: true
