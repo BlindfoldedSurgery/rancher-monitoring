@@ -86,7 +86,7 @@ rancher-monitoring:
         enabled: true
         allowed_organizations: "BlindfoldedSurgery"
         team_ids: "2938789"
-        role_attribute_path: "[login=='torbencarstens'][0] && 'GrafanaAdmin' || contains(groups[*], '@BlindfoldedSurgery/Owners') && 'Admin' || 'Viewer'"
+        role_attribute_path: "[login=='torbencarstens'][0] && 'Admin' || contains(groups[*], '@BlindfoldedSurgery/Owners') && 'Admin' || 'Viewer'"
         role_attribute_strict: true
         allow_assign_grafana_admin: true
       auth:
