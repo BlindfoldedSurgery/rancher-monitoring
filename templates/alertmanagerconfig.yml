@@ -11,6 +11,8 @@ spec:
     groupInterval: 5m
     repeatInterval: 12h
     receiver: 'telegram'
+    matchers:
+    - severity =~ "warning|critical"
   receivers:
   - name: 'telegram'
     telegramConfigs:
