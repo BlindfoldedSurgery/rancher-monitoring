@@ -21,3 +21,4 @@ spec:
         optional: false
       chatID: {{ .Values.telegram.chat_id }}
       sendResolved: true
+      parseMode: HTML
