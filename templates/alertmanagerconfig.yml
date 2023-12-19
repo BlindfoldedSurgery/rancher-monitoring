@@ -14,7 +14,7 @@ spec:
   receivers:
   - name: 'telegram'
     telegramConfigs:
-    - api_url: https://api.telegram.org
+    - apiUrl: https://api.telegram.org
       botToken:
         key: token
         name: alertmanager-telegram-token
