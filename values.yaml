@@ -109,7 +109,7 @@ github:
 telegram:
   chat_id: "-1001725503365"
   secret:
-    name: telegram-token
+    name: alertmanager-telegram-token
     secretStoreName: mgmt-prod
     data:
       - secretKey: token
