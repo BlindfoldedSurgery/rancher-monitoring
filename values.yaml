@@ -39,6 +39,14 @@ rancher-monitoring:
                 values:
                 - agent-0
                 - agent-1
+      storageSpec:
+        volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          retentionSize: 15Gi
+          resources:
+            requests:
+              storage: 20Gi
     ingress:
       enabled: true
       annotations:
