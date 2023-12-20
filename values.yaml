@@ -23,7 +23,7 @@ rancher-monitoring:
   prometheus:
     prometheusSpec:
       externalUrl: https://prometheus.blindfolded.surgery
-      scrapeInterval: "30s"
+      scrapeInterval: "15s"
       evaluationInterval: "60s"
       resources:
         limits:
