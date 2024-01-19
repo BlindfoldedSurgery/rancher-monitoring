@@ -7,5 +7,5 @@ version: 0.1.0
 dependencies:
   - name: rancher-monitoring
     repository: https://charts.rancher.io
-    version: 103.0.0+up45.31.1
+    version: 103.0.3+up45.31.1
 
