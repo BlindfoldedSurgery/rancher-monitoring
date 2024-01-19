@@ -1,6 +1,6 @@
 dependencies:
 - name: rancher-monitoring
   repository: https://charts.rancher.io
-  version: 103.0.0+up45.31.1
-digest: sha256:ad9133878dfab8a9f464cd12dddf438c63782141a47ccc6a7c96ac6220689c3b
-generated: "2023-12-20T12:42:23.195936527Z"
+  version: 103.0.3+up45.31.1
+digest: sha256:3b0860a6378103927aa1d61742a23bde3ad721c9c4bdbdd71db047b0181499b5
+generated: "2024-01-19T00:00:55.882479996Z"
